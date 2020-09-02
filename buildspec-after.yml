@@ -39,7 +39,3 @@ phases:
   post_build:
     commands:
       - echo terraform $TF_COMMAND completed on `date`
-
-artifacts:
-  files:
-    - /**/*
