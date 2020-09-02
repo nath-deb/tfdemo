@@ -19,7 +19,6 @@ version: 0.2
 env:
   variables:
     TF_VERSION: "0.13.1"
-    OUT_PLAN: `date`"_tfplan" 
 
 phases:
 
@@ -36,8 +35,9 @@ phases:
       - terraform init -input=false
       - terraform fmt
       - terraform validate
-      - TF_VAR_BUCKET_NAME=$BUCKET_NAME TF_VAR_KMS_KEY_ID=$KMS_KEY_ID terraform plan -input=false -auto-approve -out=target/$OUT_PLAN
-      - aws s3 sync target/$OUT_PLAN s3://$BUCKET_NAME/
+      - TF_VAR_BUCKET_NAME=$BUCKET_NAME TF_VAR_KMS_KEY_ID=$KMS_KEY_ID terraform plan -input=false -auto-approve -out=target/tfplan
+      - aws s3 sync target/tfplan s3://$BUCKET_NAME/
+      - TF_VAR_BUCKET_NAME=$BUCKET_NAME TF_VAR_KMS_KEY_ID=$KMS_KEY_ID terraform $TF_COMMAND -input=false -auto-approve
 
   post_build:
     commands:
@@ -45,7 +45,7 @@ phases:
 
 artifacts:
   files:
-    - target/$OUT_PLAN
+    - target/tfplan
 
 cache:
   paths:

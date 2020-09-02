@@ -32,6 +32,8 @@ phases:
   build:
     commands:
       - terraform init -input=false
+      - terraform fmt
+      - terraform validate
       - TF_VAR_BUCKET_NAME=$BUCKET_NAME TF_VAR_KMS_KEY_ID=$KMS_KEY_ID terraform $TF_COMMAND -input=false -auto-approve
 
   post_build:
