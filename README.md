@@ -38,13 +38,13 @@
 ####    c. Create a DynamoDB table with Primary partition key LockID (String)
 ####    d. (Optional) Create a KMS key if you are to use one
 #### ==============
-#### 7. Under tfdemo/config folder create a file named <env>.tfvars which contains the following 2 lines
-####    profile = <profile-name>
-####    shared_credentials_file = <credential-file-path>
+#### 7. Under tfdemo/config folder create a file named "<env>".tfvars which contains the following 2 lines
+####    profile = "<profile-name>"
+####    shared_credentials_file = "<credential-file-path>"
 #### ==============
 #### 8. Declare variables and put in the values for variables in versions.tf
-####    ${BUCKET_NAME}
-####    ${KMS_KEY_ID}
+####    "${BUCKET_NAME}"
+####    "${KMS_KEY_ID}"
 #### ==============
 #### 9. Initialize your terraform project with the command
 ####    terraform init
@@ -54,12 +54,12 @@
 ####    terraform validate
 #### ==============
 #### 11. Dry run your code
-####    terraform plan -var-file=./config/<env>.tfvars -out=tfplan
+####    terraform plan -var-file=./config/"<env>".tfvars -out=tfplan
 #### ==============
 #### 12. Provision your environment
-####    terraform apply -var-file=./config/<env>.tfvars "tfplan"
+####    terraform apply -var-file=./config/"<env>".tfvars "tfplan"
 #### ==============
 #### 13. Destroy the environment
-####    terraform destroy -var-file=./config/<env>.tfvars
+####    terraform destroy -var-file=./config/"<env>".tfvars
 
 ## Pre-requisites for AWS CodePipeline/CodeBuild
