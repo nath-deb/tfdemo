@@ -35,7 +35,7 @@ phases:
       - terraform init
       - terraform fmt
       - terraform validate
-      - TF_VAR_BUCKET_NAME=$BUCKET_NAME TF_VAR_KMS_KEY_ID=$KMS_KEY_ID terraform plan -auto-approve -out=target/tfplan
+      - terraform plan -out=target/tfplan
       - aws s3 sync target/tfplan s3://$BUCKET_NAME/
 
   post_build:
