@@ -62,3 +62,18 @@
 
 
 ## Pre-requisites for AWS CodePipeline/CodeBuild
+#### ==============
+<img src="./assets/code_pipeline_1.png">
+<img src="./assets/code_pipeline_2.png">
+<img src="./assets/code_pipeline_3.png">
+<img src="./assets/code_pipeline_4.png">
+
+#### ==============
+#### 1. Setup the Codepipeline in the following order
+####    - Codebuild pointing to buildspec.yml ( terraform plan )
+####    - Manual approval
+####    - Codebuild pointing to buildspec-after.yml ( terraform apply )
+#### ==============
+#### 2. The apply command is passed as TF_COMMAND environment variable in the 2nd Codebuild
+#### ==============
+#### 3. When need to destroy environment change the TF_COMMAND value to destroy
