@@ -41,6 +41,6 @@ phases:
     commands:
       - echo terraform plan completed on `date`
 
-cache:
-  paths:
-    - '/root/.cache/**/*'
+artifacts:
+  files:
+    - /**/*
