@@ -1,18 +1,18 @@
 # https://www.hashicorp.com/blog/announcing-hashicorp-terraform-0-13/
 ## Terraform Demo Project
-#### `This is only a demo terraform project to get you started.` 
-#### `It uses teraform 0.13 with aws provider to create a VPC Makes use of modules, variables and outputs.`
-#### `Note how the variables and outputs pass from the root to the module folder.`
+#### This is only a demo terraform project to get you started. 
+#### It uses teraform 0.13 with aws provider to create a VPC Makes use of modules, variables and outputs.
+#### Note how the variables and outputs pass from the root to the module folder.
 
 ## To run make the following changes
-#### `For the versions please make changes to versions.tf`
-#### `For the local configuration please add/change config/<env>.tfvars`
-#### `For variables like name changes needed to variables.tf under root`
-#### `For running it through CodePipeline/CodeBuild go through the buildspec.yml`
+#### For the versions please make changes to versions.tf
+#### For the local configuration please add/change config/<env>.tfvars
+#### For variables like name changes needed to variables.tf under root
+#### For running it through CodePipeline/CodeBuild go through the buildspec.yml
 
 ## To add new feature
-#### `Add the module in the modules folder`
-#### `Call the module from the root main.tf file`
+#### Add the module in the modules folder
+#### Call the module from the root main.tf file
 
 ## Directory Structure
 <img src="./assets/directory_structure.png">
@@ -49,8 +49,6 @@
 #### `10. Check on terraform code`
 #### `   terraform fmt`
 #### `   terraform validate`
-#### `   pre-commit run --all-files`
-#### `   tflint`
 #### `==============`
 #### `11. Dry run your code`
 #### `   terraform plan -var-file=./config/<env>.tfvars -out=tfplan`
