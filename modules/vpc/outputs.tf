@@ -1,3 +1,4 @@
 output vpc_output {
-    value = aws_vpc.main.id
+  description = "The ID of the VPC"
+  value       = concat(aws_vpc.main.*.id, [""])[0]
 }
