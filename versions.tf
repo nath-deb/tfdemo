@@ -19,11 +19,11 @@ terraform {
     # s3 bucket region
     encrypt = true
     # encrypt bucket contents
-    bucket = "${BUCKET_NAME}"
+    bucket = "surd-demo-terraform-dev"
     # s3 bucket name
     key = "terraform.tfstate"
     # terraform state file name
-    kms_key_id = "${KMS_KEY_ID}"
+    kms_key_id = "arn:aws:kms:us-east-1:033124433982:key/dedef1e5-9d61-40d7-a44f-6f1735591057"
     # optional
     dynamodb_table = "terraform-lock"
     # dynamoDB table name
