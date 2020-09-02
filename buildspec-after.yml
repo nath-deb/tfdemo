@@ -38,7 +38,7 @@ phases:
 
   post_build:
     commands:
-      - echo terraform plan completed on `date`
+      - echo terraform $TF_COMMAND completed on `date`
 
 cache:
   paths:
