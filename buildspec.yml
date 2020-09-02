@@ -36,15 +36,10 @@ phases:
       - terraform fmt
       - terraform validate
       - terraform plan -out=target/tfplan
-      - aws s3 sync target/tfplan s3://$BUCKET_NAME/
 
   post_build:
     commands:
       - echo terraform plan completed on `date`
-
-artifacts:
-  files:
-    - target/tfplan
 
 cache:
   paths:
