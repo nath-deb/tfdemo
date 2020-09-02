@@ -35,7 +35,6 @@ phases:
       - terraform init
       - terraform fmt
       - terraform validate
-      - terraform force-unlock -force b770eb09-8429-9626-17e8-75cc67cc78ca
       - terraform plan -out=target/tfplan
 
   post_build:
