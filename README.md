@@ -26,40 +26,39 @@
 #### ==============
 #### 2. Add Terraform to PATH
 #### ==============
-#### 3. Install precommit and tflint as per https://github.com/ksatirli/code-quality-for-terraform
+#### 3. git clone https://github.com/SurdTechnologies/tfdemo.git
 #### ==============
-#### 4. git clone https://github.com/SurdTechnologies/tfdemo.git
+#### 4. cd tfdemo 
 #### ==============
-#### 5. cd tfdemo 
-#### ==============
-#### 6. Setup the backend to store the terraform state file
+#### 5. Setup the backend to store the terraform state file
 ####    a. Create a S3 bucket where you would like to store your tfstate file
 ####    b. Put in a dummy terraform.tfstate file in the above bucket
 ####    c. Create a DynamoDB table with Primary partition key LockID (String)
 ####    d. (Optional) Create a KMS key if you are to use one
 #### ==============
-#### 7. Under tfdemo/config folder create a file named "<env>".tfvars which contains the following 2 lines
+#### 6. Under tfdemo/config folder create a file named "<env>".tfvars which contains the following 2 lines
 ####    profile = "<profile-name>"
 ####    shared_credentials_file = "<credential-file-path>"
 #### ==============
-#### 8. Declare variables and put in the values for variables in versions.tf
+#### 7. Declare variables and put in the values for variables in versions.tf
 ####    "${BUCKET_NAME}"
 ####    "${KMS_KEY_ID}"
 #### ==============
-#### 9. Initialize your terraform project with the command
+#### 8. Initialize your terraform project with the command
 ####    terraform init
 #### ==============
-#### 10. Check on terraform code
+#### 9. Check on terraform code
 ####    terraform fmt
 ####    terraform validate
 #### ==============
-#### 11. Dry run your code
+#### 10. Dry run your code
 ####    terraform plan -var-file=./config/"<env>".tfvars -out=tfplan
 #### ==============
-#### 12. Provision your environment
+#### 11. Provision your environment
 ####    terraform apply -var-file=./config/"<env>".tfvars "tfplan"
 #### ==============
-#### 13. Destroy the environment
+#### 12. Destroy the environment
 ####    terraform destroy -var-file=./config/"<env>".tfvars
+
 
 ## Pre-requisites for AWS CodePipeline/CodeBuild
