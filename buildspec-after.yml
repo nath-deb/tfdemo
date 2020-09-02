@@ -19,6 +19,7 @@ version: 0.2
 env:
   variables:
     TF_VERSION: "0.13.1"
+    TF_COMMAND: "apply"
 
 phases:
 
@@ -34,8 +35,8 @@ phases:
       - terraform init
       - terraform fmt
       - terraform validate
-      - terraform $TF_COMMAND -auto-approve
+      - terraform ${TF_COMMAND} -auto-approve
 
   post_build:
     commands:
-      - echo terraform $TF_COMMAND completed on `date`
+      - echo terraform ${TF_COMMAND} completed on `date`
