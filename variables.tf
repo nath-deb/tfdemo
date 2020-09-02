@@ -1,12 +1,36 @@
-# VPC CIDR Block
+variable create_vpc {
+  description = "VPC Flag to create/not create"
+  type        = bool
+  default     = true
+}
+
+
 variable cidr_block {
-    default = "10.0.0.0/16"
+  description = "VPC CIDR Block"
+  type        = string
+  default     = "10.0.0.0/16"
 }
 
-variable profile {
-   description = "IAM profile which has the same shared credentials mentioned below."
+variable opt_tag_name {
+  description = "Common Tag Key Environment"
+  type        = string
+  default     = "Environment"
 }
 
-variable shared_credentials_file {
-    description = "AWS Access Key and AWS Secret Access Key"
+variable opt_tag_value {
+  description = "Common Tag Value Environment"
+  type        = string
+  default     = "dev"
+}
+
+variable role {
+  description = "Common Tag Value role"
+  type        = string
+  default     = "Admin"
+}
+
+variable common_name {
+  description = "Passed to Resources under /modules/"
+  type        = string
+  default     = "Demo"
 }
